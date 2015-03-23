@@ -1,0 +1,11 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href = "{% static 'contacts/styles.css' %}" />
+<H1>Contacts</H1>
+<ul>
+    {% for contact in object_list %}
+	<li>{{ contact }}<li>
+        <a href = "{% url "contacts-edit" pk=contact.id %}"> Edit</a>
+	<a href = "{{ contact.get_absolute_url }}">View Details</a>
+	<br/>	
+    {% endfor %}
+</ul>
